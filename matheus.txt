@@ -1,1 +1,50 @@
-123456789
+#include <stdio.h>
+#include <conio.h>
+#include <stdlib.h>
+#include <time.h>
+
+ int Aleatorio(){
+    int randomico;
+    srand(time(NULL));
+    randomico = rand()%1000;
+    return randomico;
+ }
+ int LerNumero(){
+    int numero;
+    printf("Informe o numero a acertar:");
+    scanf("%d",&numero);
+    return numero;
+ }
+
+ int Imprimir(int randomico){
+     int valor;
+        printf("O numero sorteado foi:%d/n",randomico);
+        valor = randomico;
+        return valor;
+ }
+
+ int dicas(){
+     int b,a,aux=0;
+      b = Aleatorio();
+ do{
+    a = LerNumero();
+        if(a<b){
+            printf("Numero e Menor do que o sorteado\n\n");
+        }else if(a>b){
+            printf("Numero e Maior do que o sorteado\n\n");
+        }else{
+            printf("----------------");
+            printf("Voce Acertou\n");
+            printf("----------------");
+        }
+        aux++;
+    }while(a!=b);
+      printf("Tentivas:%d",aux);
+ }
+int main(){
+    int jogo,visao,random;
+    random = Aleatorio();
+    jogo = dicas();
+    visao = Imprimir(random);
+return 0;
+}
